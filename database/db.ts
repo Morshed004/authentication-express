@@ -1,11 +1,9 @@
 import mongoose from "mongoose"
+import config from "../config/config";
 
-const DB_URI = process.env.DATABASE_URI! as string;
-if (!DB_URI) {
-    throw new Error("Can not load database url!");
-}
+// Connect to the database
 const connectDB = async () => {
-    await mongoose.connect(DB_URI);
+    await mongoose.connect(config.DB_URI);
 }
 
 export default connectDB;
