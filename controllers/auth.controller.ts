@@ -43,3 +43,24 @@ export async function register(req: Request, res: Response) {
         }
     });
 }
+
+// Get User Data
+export async function getMe(req: Request, res: Response) {
+    const token = req.headers.authorization?.split(" ")[1];
+
+    if (!token) {
+        return res.status(401).json({
+            message: "Token not found."
+        });
+    }
+
+    const decodeToken: any = jwt.verify(token, config.secret);
+    const user = await userModel.findOne(decodeToken.id);
+
+    return res.status(200).json({
+        user: {
+            username: user?.username,
+            email: user?.email
+        }
+    });
+}
