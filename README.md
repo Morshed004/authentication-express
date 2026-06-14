@@ -79,11 +79,4 @@ No other environment variables are needed for the current implementation.
 ## Notes
 - The password hashing uses SHA‑256, which is **not** recommended for production; replace with a proper password‑hashing library (e.g., bcrypt).  
 - The Docker volume `mongodb_data` persists database files between container restarts.  
-- The repository contains several Git hook samples; they are not part of the runtime functionality.  
-
-## Future Improvements
-- Implement a login endpoint with JWT authentication.  
-- Use a secure password‑hashing algorithm (bcrypt, argon2).  
-- Add input validation and error handling middleware.  
-- Write unit and integration tests.  
-- Set up CI/CD pipelines for automated testing and deployment.
+- The repository contains several Git hook samples; they are not part of the runtime functionality.
